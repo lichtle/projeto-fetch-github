@@ -1,4 +1,4 @@
-import { repositoriesQuantity } from "/src/javascript/variables.js";
+import { repositoriesQuantity } from "/src/javascript/variables.js"; // Importando a variável para ser usada no ${} abaixo
 
 async function getRepositories(userName) {
   const url = `https://api.github.com/users/${userName}/repos?per_page=${repositoriesQuantity}`;
@@ -6,4 +6,4 @@ async function getRepositories(userName) {
   return await response.json();
 }
 
-export { getRepositories };
+export { getRepositories }; 
