@@ -11,19 +11,24 @@ const screen = {
 </div>`;
 
     let repositoriesItems = ""; // Variável a ser populada com repositórios
+    user.repositories.forEach(
+      (repo) =>
+        (repositoriesItems += `<li><a href="${repo.html_url}" target="_blank">${repo.name}</a></li>`)
+    );
 
-    user.repositories.forEach((repo) => {
-      repositoriesItems += `<li><a href="${repo.html_url}" target="_blank">${repo.name}</a></li>`;
-    });
-
-    if (repositoriesItems > 0) {
+    if (user.repositories.length > 0) {
       // Condição para verificar se o usuário possui repositórios
-      this.userProfile.innerHTML += ` <div class="repositories section>
+      this.userProfile.innerHTML += ` <div class="repositories section">
                                         <h2>Repositórios</h2>
                                         <ul>${repositoriesItems}</ul>
                                       </div>`;
     }
+    console.log(repositoriesItems);
   },
+
+  renderNotFound(){
+    this.userProfile.innerHTML = "<h3>Usuário não encontrado</h3>"
+  }
 };
 
 export { screen };
